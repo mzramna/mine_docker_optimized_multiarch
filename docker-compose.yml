@@ -1,0 +1,16 @@
+version: "3"
+services:
+    minecraft:
+        container_name: minecraft_server
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - $minecraft_folder:/minecraft
+        environment:
+            - SERVER_JAR=$SERVER_JAR
+            - MIN_MEMORY=$MIN_MEMORY
+            - MAX_MEMORY=$MAX_MEMORY
+        ports:
+            - 25565:25565
+            - 25575:25575
